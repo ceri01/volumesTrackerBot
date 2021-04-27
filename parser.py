@@ -17,10 +17,13 @@ def format_text(element):
 # This function adds manga to list
 def create_list(name: str):
     lst = []
-    reg = "\b(?:" + name + ")"
-    for el in soup.find_all("tr", text=re.compile(reg)):
-        link = el.find("a", href=True)
-        data = list(filter(None, format_text(el)))
-        manga = Manga(data[0], data[1], data[2], link)
-        lst.append(manga)
+    name = str.upper(name)
+    for el in soup.find_all("tr"):
+        link = ""
+        a = el.find("a", href=True)
+        if a.getText().strip().find(name) != -1:
+            link = a['href']
+            data = list(filter(None, format_text(el)))
+            manga = Manga(data[0], data[1], data[2], link)
+            lst.append(manga)
     return lst
