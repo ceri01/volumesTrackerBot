@@ -1,3 +1,4 @@
 requests~=2.21.0
 beautifulsoup4~=4.9.3
 botogram~=0.5
+redis~=3.5
