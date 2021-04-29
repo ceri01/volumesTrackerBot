@@ -39,13 +39,14 @@ def process(chat, message):
         chat.send("Manga non trovato!\nRiprova, potresti aver sbagliato a digitare.")
         return
 
-    btns[0].callback(str(result[0].name), "test", str(result[0].manc))
+    for element in result:
+        btns[index].callback(str(element.name), "test", element)
+        index += 1
     chat.send("Risultati:", attach=btns)
-    print("aaa")
 
 @bot.callback("test")
 def selezione_callback(query, data, chat, message):
-    chat.send("Ne mancano " + data)
+    chat.send("Manga: " + data)
 
 
 if __name__ == "__main__":
