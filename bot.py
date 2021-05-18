@@ -3,7 +3,7 @@ import parser
 import redis
 import conf
 
-bot = botogram.create("1707074696:AAE3zjvtf2TUWzJwvJn010ULN3YsfPf0Stw")
+bot = botogram.create("")
 r = redis.Redis(
     host=conf.HOST,
     port=conf.PORT,
